@@ -1,0 +1,91 @@
+se lesson2
+
+create table Employees (EmpID INT PRIMARY KEY, Name VARCHAR(50), Salary DECIMAL(10,2))
+
+insert into Employees (EmpID, Name, Salary) VALUES (1, 'Jaxongir', 4000.00)
+
+insert into Employees (EmpID, Name, Salary) VALUES (2, 'Bekzodbek', 7000.00), (3, 'Namuna', 6000.00)
+
+
+
+UPDATE Employees 
+SET Salary = 7000 
+WHERE EmpID = 1
+
+DELETE FROM 
+Employees WHERE EmpID = 2
+
+ALTER TABLE Employees 
+ALTER COLUMN Name VARCHAR(100)
+
+ALTER TABLE Employees
+ADD Department VARCHAR(50)
+
+ALTER TABLE Employees
+ALTER COLUMN Salary Float
+
+
+
+
+CREATE TABLE Departments (DepartmentID INT PRIMARY KEY,DepartmentName VARCHAR(50))
+
+TRUNCATE TABLE Employees
+
+
+
+INSERT INTO Departments (DepartmentID, DepartmentName)
+SELECT 1, 'Boshqaruv' UNION ALL
+SELECT 2, 'Marketing' UNION ALL
+SELECT 3, 'IT' UNION ALL
+SELECT 4, 'Moliya' UNION ALL
+SELECT 5, 'Kadrlar';
+
+UPDATE Employees SET Department = 'Boshqaruv' WHERE Salary > 5000;
+
+TRUNCATE TABLE Employees
+
+ALTER TABLE Departments DROP COLUMN DepartmentName
+
+EXEC sp_rename 'Employees', 'StaffMembers'
+
+DROP TABLE Departments
+
+
+
+CREATE TABLE Mahsulotlar (
+    ProductID INT PRIMARY KEY,
+    ProductName VARCHAR(100),
+    ProductCategory VARCHAR(50),
+    Price DECIMAL(10,2),
+    StockQuantity INT);
+
+ALTER TABLE Mahsulotlar
+ADD CONSTRAINT chk_Price_Positive CHECK (Price > 0);
+
+select * from Mahsulotlar
+
+
+ALTER TABLE Mahsulotlar
+ADD CONSTRAINT df_StockQuantity DEFAULT 50 FOR StockQuantity
+
+
+EXEC sp_rename 'Mahsulotlar.ProductCategory', 'Category', 'COLUMN'
+
+INSERT INTO Mahsulotlar (ProductID, ProductName, Category, Price, StockQuantity) VALUES
+(1, 'Olma', 'Mevalar', 10.00, 100),
+(2, 'Banan', 'Mevalar', 12.50, 200),
+(3, 'Non', 'Non maxsulotlari', 5.00, 150),
+(4, 'Sut', 'Sut maxsulotlari', 7.25, 120),
+(5, 'Gilos', 'Mevalar', 15.00, 80);
+
+
+SELECT * INTO Products_Backup FROM Mahsulotlar;
+
+
+
+EXEC sp_rename 'Mahsulotlar', 'Inventar';
+
+ALTER TABLE Inventar ADD ProductCode INT IDENTITY(1000, 5);
+
+
+ALTER TABLE Inventar ALTER COLUMN Price FLOAT;
