@@ -1,1 +1,42 @@
+Oson
+Database: raqamlar, belgilar yoki matn ko‘rinishida bo‘lgan, qayta ishlash orqali foydali axborotga aylantiriladigan xomashyo.
+Database: Tizimli tarzda saqlanadigan, boshqariladigan va qidiriladigan ma'lumotlar to‘plami.
+Relational Database: Ma'lumotlar jadvallar ko‘rinishida saqlanadigan va ular o‘zaro bog‘langan bo‘lgan ma'lumotlar bazasi.
+Table: Ma'lumotlar bazasidagi asosiy strukturaviy birlik. U satrlar (rows) va ustunlar (columns) dan tashkil topadi.
+
+
+
+
+(SQL Serverning 5 ta asosiy xususiyati)
+Relyatsion ma'lumotlarni boshqarish: Jadval asosidagi ma’lumotlar bilan ishlaydi.
+Ma'lumotlar xavfsizligi: Autentifikatsiya va ruxsatlarni boshqarish orqali ma'lumotlarni himoya qiladi.
+Zaxira va tiklash imkoniyati (Backup/Restore): Ma'lumotlarni yo'qotmaslik uchun qulay vositalar mavjud.
+Yuqori unumdorlik va ishonchlilik: Katta hajmdagi ma'lumotlar bilan tez va barqaror ishlash.
+Tahlil va hisobot qilish imkoniyatlari: BI (Business Intelligence) komponentlari orqali.
+
+
+Windows Authentication: Foydalanuvchi Windows tizimidagi hisobidan foydalanadi.
+SQL Server Authentication: Login va parol orqali maxsus SQL Server akkaunti bilan ulanadi.
+
+
+
+Create database SchoolDB
+CREATE TABLE Talabalar (
+    StudentID INT PRIMARY KEY,
+    Ism VARCHAR(50),
+    Age INT
+);
+
+Insert Into Talabalar values(1, 'Jaxongir', 23)
+select * from Talabalar
+
+
+INSERT INTO Talabalar (StudentID, Name, Age) VALUES (1, 'Alimardon', 22);
+INSERT INTO Talabalar (StudentID, Name, Age) VALUES (2, 'Latofat', 19);
+INSERT INTO Talabalar (StudentID, Name, Age) VALUES (3, 'Bekzod', 26);
+
+
+
+
+
 
