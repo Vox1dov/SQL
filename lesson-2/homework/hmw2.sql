@@ -40,7 +40,28 @@ Add Departament varchar(50)
 ALTER COLUMN Salary FLOAT
  
  9)CREATE TABLE DepartmentsUstunlar
+  
+10) TRUNCATE TABLE Employess
+
+  
+O'rta daraja
+  INSERT INTO DepartmentsUsul (DepartmentID, DepartmentName)
+SELECT 1, 'Boshqaruv' UNION ALL
+SELECT 2, 'Moliyaviy' UNION ALL
+SELECT 3, 'IT' UNION ALL
+SELECT 4, 'Marketing' UNION ALL
+SELECT 5, 'Kadrlar';
+
    (DepartmentID INT PRIMARY KEY,
     DepartmentName VARCHAR(50))
 
-10) TRUNCATE TABLE Employess
+TRUNCATE TABLE Employees;
+
+  DELETE FROM Employees;
+
+ALTER TABLE Employees
+DROP COLUMN Department;
+
+EXEC sp_rename 'Employees', 'StaffMembers';
+
+DROP TABLE Departments;
