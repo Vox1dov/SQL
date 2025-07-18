@@ -13,5 +13,26 @@ Oson
 5) Nut-Ma'lumotlar aniq emas yoki noma'lum, qiymati aniq emas,ixtiyoriy ustunda qo'llanadi.
   Not Null-Ma'lumotlar aniq, qiymati bo'lishi majburiy, majburiy to'ldiriladigan ustunda qo'llaniladi.
 
-  6)
+6)ALTER TABLE Mahsulotlar
+ADD CONSTRAINT UQ_ProductName UNIQUE (ProductName);
+
+7)/* Bu kod ProductName ustuniga UNIQUE cheklov qo‘shadi */
+ALTER TABLE Mahsulotlar
+ADD CONSTRAINT UQ_ProductName UNIQUE (ProductName);
+
+  8)ALTER TABLE Product
+ADD CategoryID INT;
+
+9)CREATE TABLE Toifalar (
+    CategoryID INT PRIMARY KEY,
+    CategoryName VARCHAR(50) UNIQUE
+);
+10)CREATE TABLE Mahsulotlar (
+    ProductID INT IDENTITY(1,1) PRIMARY KEY,
+    ProductName VARCHAR(50),
+    Narx DECIMAL(10,2)
+);
+
+
+
 
